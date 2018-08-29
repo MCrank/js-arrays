@@ -90,10 +90,10 @@ const voterRegistrationStringBuilder = () => {
   printToDom(newString, 'voterRegistration');
 };
 
-// const updateVoterRegistration = () => {
-//     //do some stuff
-//     voterRegistrationStringBuilder();
-// }
+const updateVoterRegistration = newUrl => {
+  elizabethSanger.voterRegistrationUrl = newUrl;
+  voterRegistrationStringBuilder();
+};
 
 const donationFormStringBuilder = () => {
   const newString = `<a href="https://${
@@ -102,5 +102,18 @@ const donationFormStringBuilder = () => {
   printToDom(newString, 'donationForm');
 };
 
+const statementsStringBuilder = () => {
+  let newString = '';
+  for (let i = 0; i < elizabethSanger.statements.length; i++) {
+    newString += `<div class="statement">`;
+    newString += `<h5>${elizabethSanger.statements[i].category}</h5>`;
+    newString += `<h3>${elizabethSanger.statements[i].statement}</h3>`;
+    newString += `</div>`;
+  }
+  printToDom(newString, 'statements');
+};
+
 voterRegistrationStringBuilder();
 donationFormStringBuilder();
+statementsStringBuilder();
+updateVoterRegistration('bing.com');
