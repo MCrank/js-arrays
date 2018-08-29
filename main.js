@@ -43,3 +43,20 @@ palinChecker('mom');
 palinChecker('monkeybutt');
 palinChecker('racecar');
 palinChecker('chromedome');
+
+let animals = ['dog', 'bird', 'moles', 'spiders'];
+
+const lastItem = animals.pop(); // spiders
+const firstItem = animals.shift(); // dog
+animals.push('bat'); // Adds to the end of Array
+animals.unshift('baby hippo'); // Adds to the beginning of the Array
+console.log(animals); // baby hippo, bird, moles, bat
+
+// FOR LOOPS
+// 1. WHat is your starting value - 0 (90% of time)
+// 2. What is your stopping value - something.length
+// 3. How are you incrementing - +1
+
+for (let i = 0; i < animals.length; i++) {
+  console.log(animals[i]);
+}
