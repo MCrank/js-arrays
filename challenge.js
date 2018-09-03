@@ -7,17 +7,9 @@ let elizabethSanger = {
   ],
   donationFormUrl: 'www.google.com',
   events: [
-    {
-      date: '08/27/2018',
-      title: "Zoe's birthday",
-      description: 'eat all the pie at the party'
-    },
+    { date: '08/27/2018', title: "Zoe's birthday", description: 'eat all the pie at the party' },
     { date: '08/28/2018', title: 'Arrays', description: 'all the looping' },
-    {
-      date: '09/4/2018',
-      title: 'Some important event',
-      description: 'SUPER important'
-    },
+    { date: '09/4/2018', title: 'Some important event', description: 'SUPER important' },
     { date: '09/4/2018', title: 'Running', description: 'from the police' },
     { date: '03/14/2019', title: 'Pi Day', description: 'Eat it all???' }
   ],
@@ -68,8 +60,7 @@ let elizabethSanger = {
       type: 'constituents'
     },
     {
-      imageUrl:
-        'https://d2gg9evh47fn9z.cloudfront.net/800px_COLOURBOX3658031.jpg',
+      imageUrl: 'https://d2gg9evh47fn9z.cloudfront.net/800px_COLOURBOX3658031.jpg',
       description: 'All the people of district 5',
       type: 'constituents'
     }
@@ -78,27 +69,20 @@ let elizabethSanger = {
   voterRegistrationUrl: 'www.google.com'
 };
 
+// Print To Dom Function
 const printToDom = (stringToPrint, divId) => {
   const selectedDiv = document.getElementById(divId);
   selectedDiv.innerHTML = stringToPrint;
 };
 
-const voterRegistrationStringBuilder = () => {
-  const newString = `<a href="https://${
-    elizabethSanger.voterRegistrationUrl
-  }" target="_blank">Register to Vote</a>`;
-  printToDom(newString, 'voterRegistration');
-};
-
-const updateVoterRegistration = newUrl => {
-  elizabethSanger.voterRegistrationUrl = newUrl;
-  voterRegistrationStringBuilder();
+// Challenge 1 Functions
+const districtStringBuilder = () => {
+  const newString = `<h2>Congressional District: ${elizabethSanger.congressionalDistrict}</h2>`;
+  printToDom(newString, 'congressionalDistrict');
 };
 
 const donationFormStringBuilder = () => {
-  const newString = `<a href="https://${
-    elizabethSanger.donationFormUrl
-  }" target="_blank">Donate Here</a>`;
+  const newString = `<a href="https://${elizabethSanger.donationFormUrl}" target="_blank">Donate Here</a>`;
   printToDom(newString, 'donationForm');
 };
 
@@ -106,14 +90,103 @@ const statementsStringBuilder = () => {
   let newString = '';
   for (let i = 0; i < elizabethSanger.statements.length; i++) {
     newString += `<div class="statement">`;
-    newString += `<h5>${elizabethSanger.statements[i].category}</h5>`;
+    newString += `<h4>${elizabethSanger.statements[i].category}</h4>`;
     newString += `<h3>${elizabethSanger.statements[i].statement}</h3>`;
     newString += `</div>`;
   }
   printToDom(newString, 'statements');
 };
 
-voterRegistrationStringBuilder();
+const eventsStringBuilder = () => {
+  let newString = '';
+  for (let i = 0; i < elizabethSanger.events.length; i++) {
+    newString += `<div class="event-card">`;
+    newString += `<h3>${elizabethSanger.events[i].title}</h3>`;
+    newString += `<h4>${elizabethSanger.events[i].date}</h4>`;
+    newString += `<p>${elizabethSanger.events[i].description}</p>`;
+    newString += `<div>`;
+  }
+  printToDom(newString, 'events');
+};
+
+const volunteersStringBuilder = () => {
+  let newString = '';
+  for (let i = 0; i < elizabethSanger.volunteers.length; i++) {
+    newString += `<div class="volunteer-card">`;
+    newString += `<h3>${elizabethSanger.volunteers[i].name}</h3>`;
+    newString += `<ul>`;
+    newString += `<li><strong>Phone:</strong> ${elizabethSanger.volunteers[i].phone}</li>`;
+    newString += `<li><strong>Address:</strong> ${elizabethSanger.volunteers[i].address}</li>`;
+    newString += `<li><strong>Email:</strong> ${elizabethSanger.volunteers[i].email}</li>`;
+    newString += `<li><strong>Availability:</strong> ${elizabethSanger.volunteers[i].availability}</li>`;
+    newString += `<li><strong>Activities:</strong> ${elizabethSanger.volunteers[i].activities}</li>`;
+    newString += `</ul>`;
+    newString += `<div>`;
+  }
+  printToDom(newString, 'volunteers');
+};
+
+const biographyStringBuilder = () => {
+  const newString = `<h3>Biography: ${elizabethSanger.biography}</h3>`;
+  printToDom(newString, 'biography');
+};
+
+const imagesStringBuilder = () => {
+  let newString = '';
+  for (let i = 0; i < elizabethSanger.images.length; i++) {
+    newString += `<div class="image-card">`;
+    newString += `<p>${elizabethSanger.images[i].description}</p>`;
+    newString += `<img src="${elizabethSanger.images[i].imageUrl}"></img>`;
+  }
+
+  printToDom(newString, 'images');
+};
+
+const missionStringBuilder = () => {
+  const newString = `<h3>${elizabethSanger.missionStatement}</h3>`;
+  printToDom(newString, 'missionStatment');
+};
+
+const voterRegistrationStringBuilder = () => {
+  const newString = `<a href="https://${elizabethSanger.voterRegistrationUrl}" target="_blank">Register to Vote</a>`;
+  printToDom(newString, 'voterRegistration');
+};
+
+// Challenge 2 Functions
+const updateCongressionalDistrict = newDistric => {
+  elizabethSanger.congressionalDistrict = newDistric;
+  districtStringBuilder();
+};
+
+const updateDonationFormLink = newDonationLink => {
+  elizabethSanger.donationFormUrl = newDonationLink;
+  donationFormStringBuilder();
+};
+
+const updateStatements = (newStatement, statementCat) => {
+  // const newSatementobject = `{statement: "${newStatement}", category: "${statementCat}"}`;
+  elizabethSanger.statements.push({ statement: newStatement, category: statementCat });
+  statementsStringBuilder();
+};
+
+const updateVoterRegistration = newUrl => {
+  elizabethSanger.voterRegistrationUrl = newUrl;
+  voterRegistrationStringBuilder();
+};
+
+// Challenege 1 Function Calls
+districtStringBuilder();
 donationFormStringBuilder();
 statementsStringBuilder();
+eventsStringBuilder();
+volunteersStringBuilder();
+biographyStringBuilder();
+imagesStringBuilder();
+missionStringBuilder();
+voterRegistrationStringBuilder();
+
+// Challenge 2 Function Calls
 updateVoterRegistration('bing.com');
+updateCongressionalDistrict(7);
+updateDonationFormLink('github.com');
+updateStatements('Free College', 'Education');
