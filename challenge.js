@@ -169,6 +169,31 @@ const updateStatements = (newStatement, statementCat) => {
   statementsStringBuilder();
 };
 
+const updateEvents = newEvent => {
+  elizabethSanger.events.push(newEvent);
+  eventsStringBuilder();
+};
+
+const updateVolunteers = newVolunteer => {
+  elizabethSanger.volunteers.push(newVolunteer);
+  volunteersStringBuilder();
+};
+
+const updateBiography = newBio => {
+  elizabethSanger.biography = newBio;
+  biographyStringBuilder();
+};
+
+const updateImges = newImage => {
+  elizabethSanger.images.push(newImage);
+  imagesStringBuilder();
+};
+
+const updateMission = newMissionStatement => {
+  elizabethSanger.missionStatement = newMissionStatement;
+  missionStringBuilder();
+};
+
 const updateVoterRegistration = newUrl => {
   elizabethSanger.voterRegistrationUrl = newUrl;
   voterRegistrationStringBuilder();
@@ -190,3 +215,23 @@ updateVoterRegistration('bing.com');
 updateCongressionalDistrict(7);
 updateDonationFormLink('github.com');
 updateStatements('Free College', 'Education');
+updateEvents({
+  date: '09/03/2018',
+  title: 'Go back to work day',
+  description: 'Time t get back to work'
+});
+updateVolunteers({
+  name: 'Marco',
+  address: '123 United Way',
+  email: 'email@home.com',
+  phone: '16152349875',
+  availability: '6-9',
+  activities: 'err thing'
+});
+updateBiography('(MJGA) - MAKE JAVASCRIPT GREAT AGAIN');
+updateImges({
+  imageUrl: 'http://mouthybroadcast.com/wp-content/uploads/2017/11/this-is-fine.jpg',
+  description: 'This is fine',
+  type: 'meme'
+});
+updateMission('A long time ago in a galaxy far far away...');
