@@ -104,7 +104,7 @@ const eventsStringBuilder = () => {
     newString += `<h3>${elizabethSanger.events[i].title}</h3>`;
     newString += `<h4>${elizabethSanger.events[i].date}</h4>`;
     newString += `<p>${elizabethSanger.events[i].description}</p>`;
-    newString += `<div>`;
+    newString += `</div>`;
   }
   printToDom(newString, 'events');
 };
@@ -121,7 +121,7 @@ const volunteersStringBuilder = () => {
     newString += `<li><strong>Availability:</strong> ${elizabethSanger.volunteers[i].availability}</li>`;
     newString += `<li><strong>Activities:</strong> ${elizabethSanger.volunteers[i].activities}</li>`;
     newString += `</ul>`;
-    newString += `<div>`;
+    newString += `</div>`;
   }
   printToDom(newString, 'volunteers');
 };
@@ -137,6 +137,7 @@ const imagesStringBuilder = () => {
     newString += `<div class="image-card">`;
     newString += `<p>${elizabethSanger.images[i].description}</p>`;
     newString += `<img src="${elizabethSanger.images[i].imageUrl}"></img>`;
+    newString += `</div>`;
   }
 
   printToDom(newString, 'images');
@@ -218,7 +219,7 @@ updateStatements('Free College', 'Education');
 updateEvents({
   date: '09/03/2018',
   title: 'Go back to work day',
-  description: 'Time t get back to work'
+  description: 'Time to get back to work'
 });
 updateVolunteers({
   name: 'Marco',

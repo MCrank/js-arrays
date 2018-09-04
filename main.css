@@ -2,21 +2,41 @@ body {
   background-color: tomato;
 }
 
+#statements {
+  display: flex;
+  /* border: 10px solid goldenrod; */
+  justify-content: space-around;
+}
 .statement {
-  background-color: beige;
-  border: 2px solid blue;
-  margin: 0px;
+  background-color: cadetblue;
 }
 
-.statement h5 {
-  /* background-color: beige; */
-  /* border: 2px solid blue; */
-  margin: 0px;
+#events {
+  display: flex;
+  border: 2px solid goldenrod;
+  justify-content: space-around;
 }
-
 .event-card {
   background-color: olive;
   border: 1px solid palegoldenrod;
 }
 
-.volunteer-card;
+#volunteers {
+  display: flex;
+  border: 2px solid dodgerblue;
+  justify-content: space-evenly;
+}
+
+.volunteer-card {
+  background-color: bisque;
+}
+
+#images {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.image-card {
+  padding: 10px;
+  width: 33.333333%;
+}
